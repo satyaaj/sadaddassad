@@ -1,0 +1,64 @@
+﻿@model IEnumerable<AirportManagementSystem.Models.Planes.PlanesAllotments>
+
+@{
+    ViewBag.Title = "_Index";
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.HangarName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ManagerID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlaneID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isPlaneAllocated)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HangarName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ManagerID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlaneID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isPlaneAllocated)
+            </td>
+            <td style="visibility:hidden">
+                @if (item.isPlaneAllocated == true)
+                {
+                    <span> | Allot |</span>
+                    <span>| @Html.ActionLink("Remove", "PlaneRejected", new { id = item.ID }, new { onclick = "return pop('Are you sure want to Reject?')" }) |</span>
+                }
+                else
+                {
+                    <span>| Remove |</span>
+                    <span>| @Html.ActionLink("Allot", "PlaneApproved", new { id = item.ID }, new { onclick = "return pop('Are you sure want to Approve?')" }) |</span>
+                }
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+<script type="text/javascript">
+    function pop(txt) {
+        if (confirm(txt))
+            return true;
+        else
+            return false;
+    }
+</script>

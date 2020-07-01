@@ -1,0 +1,51 @@
+﻿@model IEnumerable<AirportManagementSystem.Models.Planes.FlightPlanDetails>
+
+<p>
+   
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PlaneID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartureLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArrivalLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartureTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArrivalTime)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlaneID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepartureLocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArrivalLocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepartureTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArrivalTime)
+        </td>
+        <td>
+          @*  | @Html.ActionLink("Update Details", "UpdateFlightPlan", new { id = item.PlaneID }) |*@
+        </td>
+    </tr>
+}
+
+</table>
+
+<hr />

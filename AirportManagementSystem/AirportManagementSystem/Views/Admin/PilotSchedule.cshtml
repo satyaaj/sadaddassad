@@ -1,0 +1,53 @@
+﻿@model IEnumerable<AirportManagementSystem.Models.Admin.PilotSchedule>
+
+@{
+    ViewBag.Title = "PilotSchedule";
+}
+
+<h2>Pilot Schedule</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            <label>Name</label>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PilotID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PilotAvailabilityFrom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PilotAvailabilityTo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.PilotID_INPS.FirstName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PilotID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PilotAvailabilityFrom)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PilotAvailabilityTo)
+    </td>
+    <td>
+        | @Html.ActionLink("Schedule", "AddSchedule", new { id = item.ID }) |
+    </td>
+</tr>
+}
+
+</table>
+
+<div>
+    @Html.ActionLink("Back", "Index")
+</div>
+
+<hr />

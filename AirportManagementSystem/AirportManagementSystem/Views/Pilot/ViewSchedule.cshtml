@@ -1,0 +1,73 @@
+﻿@model IEnumerable<AirportManagementSystem.Models.Admin.PilotSchedule>
+
+@{
+    ViewBag.Title = "ViewSchedule";
+}
+
+<h2>ViewSchedule</h2>
+
+<p>
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PilotID_INPS.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PilotAvailabilityFrom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PilotAvailabilityTo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PilotID_INPS.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PilotAvailabilityFrom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PilotAvailabilityTo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @if (item.IsActive == true)
+                {
+                    <span> | Active |</span>
+                    <span>| @Html.ActionLink("On Leave", "pilotOnLeave", new { id = item.ID }, new { onclick = "return pop('Are you sure want to Reject?')" }) |</span>
+                }
+                else
+                {
+                    <span>| @Html.ActionLink("Active", "pilotActive", new { id = item.ID }, new { onclick = "return pop('Are you sure want to Approve?')" }) |</span>
+                    <span>| On Leave |</span>
+                }
+            </td>
+        </tr>
+    }
+
+</table>
+<script type="text/javascript">
+    function pop(txt) {
+        if (confirm(txt))
+            return true;
+        else
+            return false;
+    }
+</script>
+
+<div>
+    @Html.ActionLink("Back", "Index")
+</div>
+
+<hr />

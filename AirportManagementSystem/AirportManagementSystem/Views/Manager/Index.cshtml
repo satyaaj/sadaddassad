@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNet.Identity
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div>
+    <div class="navbar-left">
+        <h2>List of Allotted Hangars</h2>
+    </div>
+    <div class="navbar-right hidden">
+        <h3> @Html.ActionLink("Update Details", "EditManager", new { id = User.Identity.GetUserName() })</h3>
+    </div>
+</div>
+<br /><br /><br />
+<p>
+    <h3> @Html.ActionLink("Allot Hangar", "AllotmentOfPlanes")</h3>
+</p>
+
+<div>
+    @Html.Partial("_Index")
+</div>
+
+<hr />

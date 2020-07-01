@@ -1,0 +1,55 @@
+﻿@model IEnumerable<AirportManagementSystem.Models.Admin.PilotSchedule>
+
+@{
+    ViewBag.Title = "Reporting_Pilot";
+}
+
+<h2>Pilot Schedule</h2>
+
+<div class="container body-content">
+    @if (@TempData["PSsaved"] != null)
+    {
+    <div class="alert alert-info">
+        @TempData["PSsaved"]
+    </div>
+    }
+</div>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PilotID_INPS.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PilotAvailabilityFrom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PilotAvailabilityTo)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PilotID_INPS.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PilotAvailabilityFrom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PilotAvailabilityTo)
+            </td>
+            <td>
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div>
+    @Html.ActionLink("Back", "Reporting")
+</div>
+<hr />

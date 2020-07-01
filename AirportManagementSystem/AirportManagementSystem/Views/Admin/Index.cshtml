@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2></h2>
+<style>
+    .square {
+        float: left;
+        position: relative;
+        width: 20%;
+        padding-bottom: 20%; /* = width for a 1:1 aspect ratio */
+        margin: 1.66%;
+        overflow: hidden;
+    }
+
+    .content {
+        position: absolute;
+        height: 80%; /* = 100% - 2*10% padding */
+        width: 90%; /* = 100% - 2*5% padding */
+        padding: 10% 5%;
+    }
+</style>
+
+@using (Html.BeginForm())
+{
+
+    <div class="">
+
+        <div class="square" style="box-shadow: 0px 2px 25px rgba(0, 0, 0, .25);">
+            <div class="content card card-block w-25 mx-auto">
+                <h4 class="card-title" style="margin-top:40px; text-align: center; ">@Html.ActionLink("Managers", "Managers", "Admin")</h4>
+            </div>
+        </div>
+
+        <div class="square" style="box-shadow: 0px 2px 25px rgba(0, 0, 0, .25);">
+            <div class="content card card-block w-25 mx-auto">
+                <h4 class="card-title" style="margin-top:40px; text-align: center; ">@Html.ActionLink("Pilots", "Pilots", "Admin")</h4>
+            </div>
+        </div>
+
+        <div class="square" style="box-shadow: 0px 2px 25px rgba(0, 0, 0, .25);">
+            <div class="content card card-block w-25 mx-auto">
+                <h4 class="card-title" style="margin-top:40px; text-align: center;">@Html.ActionLink("Add Planes", "AddPlanes", "Admin")</h4>
+            </div>
+        </div>
+
+        <div class="square" style="box-shadow: 0px 2px 25px rgba(0, 0, 0, .25);">
+            <div class="content card card-block w-25 mx-auto">
+                <h4 class="card-title" style="margin-top:40px; text-align: center;">@Html.ActionLink("View Planes", "Planes", "Admin")</h4>
+            </div>
+        </div>
+
+        <div class="square" style="box-shadow: 0px 2px 25px rgba(0, 0, 0, .25);">
+            <div class="content card card-block w-25 mx-auto">
+                <h4 class="card-title" style="margin-top:40px; text-align: center;">@Html.ActionLink("Add Hangar", "AddHangar", "Admin")</h4>
+
+            </div>
+        </div>
+
+        <div class="square" style="box-shadow: 0px 2px 25px rgba(0, 0, 0, .25);">
+            <div class="content card card-block w-25 mx-auto">
+                <h4 class="card-title" style="margin-top:40px; text-align: center;">@Html.ActionLink("View Hangars", "Hangars", "Admin")</h4>
+            </div>
+        </div>
+
+        <div class="square" style="box-shadow: 0px 2px 25px rgba(0, 0, 0, .25);">
+            <div class="content card card-block w-25 mx-auto">
+                <h4 class="card-title" style="margin-top:40px; text-align: center;">@Html.ActionLink("Pilot Schedule", "PilotSchedule", "Admin")</h4>
+            </div>
+        </div>
+
+        <div class="square" style="box-shadow: 0px 2px 25px rgba(0, 0, 0, .25);">
+            <div class="content card card-block w-25 mx-auto">
+                <h4 class="card-title" style="margin-top:40px; text-align: center;">@Html.ActionLink("Reporting", "Reporting", "Admin")</h4>
+            </div>
+        </div>
+
+    </div>
+
+
+}

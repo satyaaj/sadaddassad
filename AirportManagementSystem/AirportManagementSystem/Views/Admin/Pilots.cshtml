@@ -1,0 +1,92 @@
+﻿@model IEnumerable<AirportManagementSystem.Models.Pilot.PilotDetails>
+
+@{
+    ViewBag.Title = "Pilots";
+}
+
+<h2>Pilots</h2>
+
+<p>
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContactNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isApproved)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isApproved)
+            </td>
+            <td>
+                @if (item.isApproved == true)
+                {
+                    <span> | Approve |</span>
+                    <span>| @Html.ActionLink("Reject", "PilotRejected", new { id = item.ID }, new { onclick = "return pop('Are you sure want to Reject?')" }) |</span>
+                }
+                else
+                {
+                    <span>| @Html.ActionLink("Approve", "PilotApproved", new { id = item.ID }, new { onclick = "return pop('Are you sure want to Approve?')" }) |</span>
+                    <span>| Reject |</span>
+                }
+            </td>
+        </tr>
+    }
+
+</table>
+
+<script type="text/javascript">
+    function pop(txt) {
+        if (confirm(txt))
+            return true;
+        else
+            return false;
+    }
+</script>
+
+<div>
+    @Html.ActionLink("Back", "Index")
+</div>
+
+<hr />

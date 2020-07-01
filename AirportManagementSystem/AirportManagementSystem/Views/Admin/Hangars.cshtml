@@ -1,0 +1,76 @@
+﻿@model IEnumerable<AirportManagementSystem.Models.Planes.HangarDetails>
+
+@{
+    ViewBag.Title = "Hangars";
+}
+
+<h2>All Hangars</h2>
+
+<p>
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.HangerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Terminal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isActive)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.HangerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Terminal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.isActive)
+            </td>
+            <td>
+                @if (item.isActive == true)
+                {
+                    <span> | Approve |</span>
+                }
+                else
+                {
+                    <span>| @Html.ActionLink("Approve", "HangarApproved", new { id = item.ID }, new { onclick = "return pop('Are you sure want to Approve?')" }) |</span>
+                }
+
+                @if (item.isActive == false)
+                {
+                    <span>| Reject |</span>
+                }
+                else
+                {
+
+                    <span>| @Html.ActionLink("Reject", "HangarRejected", new { id = item.ID }, new { onclick = "return pop('Are you sure want to Reject?')" }) |</span>
+                }
+
+            </td>
+        </tr>
+    }
+
+</table>
+
+<script type="text/javascript">
+    function pop(txt) {
+        if (confirm(txt))
+            return true;
+        else
+            return false;
+    }
+</script>
+
+<div>
+    @Html.ActionLink("Back", "Index")
+</div>
+<hr />

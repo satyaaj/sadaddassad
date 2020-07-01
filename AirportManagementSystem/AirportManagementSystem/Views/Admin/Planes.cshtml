@@ -1,0 +1,68 @@
+﻿@model IEnumerable<AirportManagementSystem.Models.Planes.PlaneDetails>
+
+@{
+    ViewBag.Title = "Planes";
+}
+
+<h2>Planes</h2>
+
+<p>
+    
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PlaneID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OwnerFirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OwnerLastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OwnerEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlaneType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlaneCapacity)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlaneID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OwnerFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OwnerLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OwnerEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlaneType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlaneCapacity)
+            </td>
+            <td>
+                | @Html.ActionLink("Update Details", "UpdatePlanes", new { id = item.PlaneID }) |
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div>
+    @Html.ActionLink("Back", "Index")
+</div>
+<hr />

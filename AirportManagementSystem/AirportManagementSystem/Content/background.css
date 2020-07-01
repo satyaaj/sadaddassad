@@ -1,0 +1,12 @@
+﻿body {
+    background-size: cover;
+}
+
+    body h1 {
+        color: lightgray;
+    }
+
+    body #lorm_text {
+        margin-top: 250px;
+        color: lightgray;
+    }
